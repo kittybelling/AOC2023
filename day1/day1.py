@@ -1,4 +1,7 @@
 
+# Kitty Belling
+# 2023/12/01
+
 # IMPORT
 from aoc_helper import aoc_helper 
 chelp = aoc_helper()

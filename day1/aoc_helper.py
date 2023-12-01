@@ -1,4 +1,7 @@
 
+# Kitty Belling
+# 2023/12/01
+
 import os 
 
 class aoc_helper:
