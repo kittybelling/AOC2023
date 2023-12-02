@@ -1,5 +1,6 @@
 
 # Kitty Belling
+# 2023/12/2
 
 # IMPORT
 from aoc_helper import aoc_helper 
@@ -17,7 +18,7 @@ def sum_powers(Lines):
     return s
 
 def get_game_power(line):
-    max_bag = [0,0,0]
+    max_bag = [0,0,0]   # R,G,B
     num, split_draws = break_line(line) 
     for draw in split_draws:
         color_split = draw.split(",")
@@ -82,8 +83,6 @@ def break_line(line):
     draws = draws.strip()
     split_draws = draws.split(";")
     return num, split_draws
-
-
 
 # MAIN
 iLines = chelp.get_input_text("input.txt")
