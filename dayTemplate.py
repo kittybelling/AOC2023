@@ -2,7 +2,8 @@
 # Kitty Belling
 
 # IMPORT
-from aoc_helper import aoc_helper as chelp 
+from aoc_helper import aoc_helper 
+chelp = aoc_helper()
 
 # SETUP 
 
@@ -11,5 +12,5 @@ from aoc_helper import aoc_helper as chelp
 
 
 # MAIN
-
+iLines = chelp.get_input_text("input.txt")
 
