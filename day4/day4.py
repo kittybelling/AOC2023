@@ -13,5 +13,5 @@ chelp = aoc_helper()
 
 
 # MAIN
-iLines = chelp.get_input_text("input.txt")
+iLines = chelp.get_input_text("basic_input.txt")
 
