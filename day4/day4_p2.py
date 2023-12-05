@@ -29,31 +29,30 @@ def break_lines(iLines):
 		output.append([int(card_num),w,h])
 	return output
 
-def get_score(cards):
-	osum = 0
-	for [c,winners,hand] in cards:
-		count = 0
-		for h in hand:
-			if h in winners:
-				count += 1
-		s = calculate_score(count)
-		osum += s 
-	return osum
-
-def calculate_score(count):
-	score = 0
-	while count > 0:
-		if score == 0:
-			score = 1
-		else:
-			score = score * 2
-		count -= 1
-	return score
-
+def get_score(c,winners,hand):
+	count = 0
+	for h in hand:
+		if h in winners:
+			count += 1
+	return count
 
 def get_copies(cards):
 	copies = create_copies_list(cards) 
-	return copies
+	for [c,w,h] in cards:
+		# print("Card: ",c)
+		sc = get_score(c,w,h)
+		# print("Score: ",sc)
+		for l in range(copies[c-1][1]+1): 
+			i = c 
+			# print("COPY: ",l)
+			for j in range(sc):
+				# print("Copying card: ",i)
+				copies[i][1] = copies[i][1] + 1 
+				i += 1
+	t = []
+	for [index,count] in copies:
+		t.append([index,count+1])
+	return t
 
 def create_copies_list(cards):
 	copies = []
@@ -61,10 +60,14 @@ def create_copies_list(cards):
 		copies.append([c,0])
 	return copies
 
-
+def count_scratchcards(copies):
+	osum = 0 
+	for [i,c] in copies:
+		osum += c 
+	return osum
 
 # MAIN
-iLines = chelp.get_input_text("basic_input.txt")
+iLines = chelp.get_input_text("input.txt")
 
 cards = break_lines(iLines)
 
@@ -80,5 +83,10 @@ cards = break_lines(iLines)
 
 copies = get_copies(cards)
 
-for c in copies:
-	print(c)
+# for c in copies:
+# 	print(c)
+# print("")
+
+result = count_scratchcards(copies)
+
+print("RESULT:\t",result)
