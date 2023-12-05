@@ -51,10 +51,20 @@ def calculate_score(count):
 	return score
 
 
+def get_copies(cards):
+	copies = create_copies_list(cards) 
+	return copies
+
+def create_copies_list(cards):
+	copies = []
+	for [c,w,h] in cards:
+		copies.append([c,0])
+	return copies
+
 
 
 # MAIN
-iLines = chelp.get_input_text("input.txt")
+iLines = chelp.get_input_text("basic_input.txt")
 
 cards = break_lines(iLines)
 
@@ -64,6 +74,11 @@ cards = break_lines(iLines)
 # 	print("Numbers in Hand: ",h)
 # 	print("")
 
-score = get_score(cards)
+# score = get_score(cards)
 
-print(score)
+# print(score)
+
+copies = get_copies(cards)
+
+for c in copies:
+	print(c)
